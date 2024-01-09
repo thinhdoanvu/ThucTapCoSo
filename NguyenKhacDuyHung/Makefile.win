@@ -1,0 +1,29 @@
+# Project: mergesort_with_graphics
+# Makefile created by Dev-C++ 6.7.5
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o
+LINKOBJ  = main.o
+LIBS     = -L"C:/TDM-GCC-32/lib/gcc/mingw32/10.3.0/" -L"C:/TDM-GCC-32/lib/gcc/" -L"C:/TDM-GCC-32/mingw32/lib/" -L"C:/TDM-GCC-32/lib/" -L"C:/TDM-GCC-32/lib" -L"C:/TDM-GCC-32/mingw32/lib" -s -lbgi -lgdi32 -luser32 -static
+INCS     = -I"C:/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include" -I"C:/TDM-GCC-32/include" -I"C:/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include-fixed"
+CXXINCS  = -I"C:/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include/c++" -I"C:/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include/c++/mingw32" -I"C:/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include/c++/backward" -I"C:/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include" -I"C:/TDM-GCC-32/include" -I"C:/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include-fixed"
+BIN      = mergesort_with_graphics.exe
+CXXFLAGS = $(CXXINCS) -O2
+ENCODINGS = -finput-charset=utf-8 -fexec-charset=windows-1252
+CFLAGS   = $(INCS) -O2
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "$(BIN)" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)  $(ENCODINGS) 
