@@ -1,0 +1,29 @@
+# Project: ThucTapCoSo
+# Makefile created by Dev-C++ 6.7.5
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o
+LINKOBJ  = main.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/lib" -L"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/mingw32/lib" -s -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 -static
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include" -I"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/include" -I"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include-fixed"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include/c++" -I"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include/c++/mingw32" -I"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include/c++/backward" -I"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include" -I"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/include" -I"C:/Program Files (x86)/Dev-Cpp/TDM-GCC-32/lib/gcc/mingw32/10.3.0/include-fixed"
+BIN      = ThucTapCoSo.exe
+CXXFLAGS = $(CXXINCS) -O2
+ENCODINGS = -finput-charset=utf-8 -fexec-charset=windows-1252
+CFLAGS   = $(INCS) -O2
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "$(BIN)" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS) 
